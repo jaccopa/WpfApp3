@@ -37,7 +37,6 @@
                     <i:EventTrigger EventName="TextChanged" >
                         <i:InvokeCommandAction Command="{Binding TxtCmd}" CommandParameter="0"/>
                     </i:EventTrigger>
-                    
                 </i:Interaction.Triggers>
             </TextBox>
             <Label  Style="{StaticResource mylb}" Content="{Binding LbContent2}"/>
