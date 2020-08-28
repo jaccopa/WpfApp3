@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:local="clr-namespace:WpfControls"
         mc:Ignorable="d"
         Title="WinTestBtn" Height="450" Width="800">
@@ -22,11 +23,24 @@
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
+
+
     </Window.Resources>
+
+
     <Grid>
         <StackPanel Width="200" Margin="50" >
             <Button Style="{StaticResource defaultButton}" Content="{Binding BtContent}" Command="{Binding BtnCmd}"/>
             <Label  Style="{StaticResource mylb}" Content="{Binding LbContent}"/>
+            <TextBox  Text="{Binding txt,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}">
+                <i:Interaction.Triggers >
+                    <i:EventTrigger EventName="TextChanged" >
+                        <i:InvokeCommandAction Command="{Binding TxtCmd}" CommandParameter="0"/>
+                    </i:EventTrigger>
+                    
+                </i:Interaction.Triggers>
+            </TextBox>
+            <Label  Style="{StaticResource mylb}" Content="{Binding LbContent2}"/>
         </StackPanel>
     </Grid>
 </Window>
