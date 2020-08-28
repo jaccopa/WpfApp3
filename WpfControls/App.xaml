@@ -4,6 +4,14 @@
              xmlns:local="clr-namespace:WpfControls"
              StartupUri="V/WinTestBtn.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles\myButton.xaml"/>
+                <ResourceDictionary Source="Resources\colors.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style TargetType="Button" BasedOn="{StaticResource defaultButton}"/>
+
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

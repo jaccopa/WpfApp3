@@ -25,7 +25,7 @@
     </Window.Resources>
     <Grid>
         <StackPanel Width="200" Margin="50" >
-            <Button Style="{StaticResource mybtn}" Content="{Binding BtContent}" Command="{Binding BtnCmd}"/>
+            <Button Style="{StaticResource defaultButton}" Content="{Binding BtContent}" Command="{Binding BtnCmd}"/>
             <Label  Style="{StaticResource mylb}" Content="{Binding LbContent}"/>
         </StackPanel>
     </Grid>
