@@ -1,0 +1,28 @@
+﻿<Window x:Class="WpfApp3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="850">
+    
+    <Canvas Height="450" Width="800" Background="Yellow">
+
+        <Thumb x:Name="mythumb1" Width="20" Height="20" DragStarted="mythumb1_DragStarted"  DragDelta="mythumb_DragDelta" DragOver="mythumb_DragOver" DragCompleted="mythumb_DragCompleted" Canvas.Left="10" Canvas.Top="20" Panel.ZIndex="90">
+        </Thumb>
+
+        <Thumb Visibility="Hidden" x:Name="mythumb2" Width="20" Height="20" DragDelta="mythumb_DragDelta2" DragOver="mythumb_DragOver" DragCompleted="mythumb_DragCompleted" Canvas.Left="150" Canvas.Top="150" Panel.ZIndex="90"></Thumb>
+
+        <Thumb x:Name="mythumb3" Width="20" Height="20" DragDelta="mythumb_DragDelta3" DragOver="mythumb_DragOver" DragCompleted="mythumb_DragCompleted" Canvas.Left="10" Canvas.Top="120" Panel.ZIndex="90"></Thumb>
+
+        <Thumb Visibility="Hidden" x:Name="mythumb4" Width="20" Height="20" DragDelta="mythumb_DragDelta4" DragOver="mythumb_DragOver" DragCompleted="mythumb_DragCompleted" Canvas.Left="150" Canvas.Top="250" Panel.ZIndex="90"></Thumb>
+
+        <InkCanvas Background="AliceBlue" Panel.ZIndex="89" Height="450" Width="800" Canvas.Left="0" Canvas.Top="0" x:Name="inkcan">
+            
+        </InkCanvas>
+
+        <Rectangle x:Name="rect"  Width="20" Height="20" Canvas.Left="100" Canvas.Top="100" Stroke="Red" StrokeThickness="0.2" Panel.ZIndex="90"></Rectangle>
+    </Canvas>
+
+</Window>

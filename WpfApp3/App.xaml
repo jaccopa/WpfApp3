@@ -1,0 +1,19 @@
+﻿<Application x:Class="WpfApp3.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WpfApp3"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ColorKeys.xaml"/>
+
+                <ResourceDictionary Source="ThumbStyle.xaml"/>
+
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style TargetType="{x:Type Thumb}" BasedOn="{StaticResource SliderThumbStyle}" />
+            
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
