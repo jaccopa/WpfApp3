@@ -70,6 +70,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="V\WinDataGrid.xaml.cs">
+      <DependentUpon>WinDataGrid.xaml</DependentUpon>
+    </Compile>
     <Compile Include="V\WinTestBtn.xaml.cs">
       <DependentUpon>WinTestBtn.xaml</DependentUpon>
     </Compile>
@@ -90,6 +93,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\myButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\myComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\myDatePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="V\WinDataGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -2,15 +2,19 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:WpfControls"
-             StartupUri="V/WinTestBtn.xaml">
+             StartupUri="V/WinDataGrid.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles\myDatePicker.xaml"/>
+                <ResourceDictionary Source="Styles\myComboBox.xaml"/>
                 <ResourceDictionary Source="Styles\myButton.xaml"/>
                 <ResourceDictionary Source="Resources\colors.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <Style TargetType="Button" BasedOn="{StaticResource defaultButton}"/>
+            <Style TargetType="ComboBox" BasedOn="{StaticResource defaultComboBox}"/>
+            <Style TargetType="DatePicker" BasedOn="{StaticResource defaultDatePicker}"/>
 
         </ResourceDictionary>
     </Application.Resources>
