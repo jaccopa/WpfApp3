@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="WinDataGrid" Height="450" Width="800">
     <Grid>
-        <StackPanel Width="200" Margin="50">
+        <StackPanel Width="300" Margin="50">
             <ComboBox>
                 <ComboBoxItem>123</ComboBoxItem>
                 <ComboBoxItem>456</ComboBoxItem>
@@ -16,6 +16,16 @@
             <Label></Label>
             
             <DatePicker></DatePicker>
+
+            <DataGrid ItemsSource="{Binding WarnInfos}">
+                
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding SUM}"/>
+                    <DataGridTextColumn Binding="{Binding ErrCode}"/>
+                </DataGrid.Columns>
+                
+            </DataGrid>
+            
         </StackPanel>
     </Grid>
 </Window>

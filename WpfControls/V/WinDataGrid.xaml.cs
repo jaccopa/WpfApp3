@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfControls.VM;
 
 namespace WpfControls.V
 {
@@ -22,6 +23,8 @@ namespace WpfControls.V
         public WinDataGrid()
         {
             InitializeComponent();
+
+            this.DataContext = new DataGridVM();
         }
     }
 }

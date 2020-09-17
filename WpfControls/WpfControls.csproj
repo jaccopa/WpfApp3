@@ -70,6 +70,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="M\CSthModel.cs" />
+    <Compile Include="VM\DataGridVM.cs" />
     <Compile Include="V\WinDataGrid.xaml.cs">
       <DependentUpon>WinDataGrid.xaml</DependentUpon>
     </Compile>
