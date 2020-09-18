@@ -40,6 +40,7 @@
                 </i:Interaction.Triggers>
             </TextBox>
             <Label  Style="{StaticResource mylb}" Content="{Binding LbContent2}"/>
+            
         </StackPanel>
     </Grid>
 </Window>

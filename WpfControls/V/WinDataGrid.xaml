@@ -6,6 +6,14 @@
         xmlns:local="clr-namespace:WpfControls.V"
         mc:Ignorable="d"
         Title="WinDataGrid" Height="450" Width="800">
+
+    <Window.Resources>
+        <Storyboard x:Key="ani" RepeatBehavior="Forever" Storyboard.TargetName="btRotation">
+            <DoubleAnimation From="0" To="90" RepeatBehavior="Forever" Duration="0:0:3"
+                                             Storyboard.TargetName="transr"
+                                             Storyboard.TargetProperty="Angle"/>
+        </Storyboard>
+    </Window.Resources>
     <Grid>
         <StackPanel Width="300" Margin="50">
             <ComboBox>
@@ -25,7 +33,30 @@
                 </DataGrid.Columns>
                 
             </DataGrid>
-            
+            <Button Content="button">
+                <Button.RenderTransform>
+                    <RotateTransform x:Name="trans" Angle="0"/>
+                </Button.RenderTransform>
+
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="Button.Loaded">
+                        <BeginStoryboard >
+                            <Storyboard>
+                                <DoubleAnimation From="0" To="360" RepeatBehavior="Forever" Duration="0:0:3"
+                                             Storyboard.TargetName="trans"
+                                             Storyboard.TargetProperty="Angle"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
+
+            <Button Content="btRotation" x:Name="btRotation">
+                <Button.RenderTransform>
+                    <RotateTransform x:Name="transr" Angle="0"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button Content="stop" Click="Button_Click"></Button>
         </StackPanel>
     </Grid>
 </Window>
