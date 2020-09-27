@@ -36,6 +36,11 @@ namespace WpfControls.V
         {
             s = (Storyboard)TryFindResource("ani");
             s.Begin();
+
+
+            int ak = 0x0102;
+            byte[] arr = BitConverter.GetBytes(ak);
+
         }
 
         bool flag = false;
