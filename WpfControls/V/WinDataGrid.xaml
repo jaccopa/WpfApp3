@@ -23,7 +23,7 @@
             
             <Label></Label>
             
-            <DatePicker></DatePicker>
+            <DatePicker ></DatePicker>
 
             <DataGrid ItemsSource="{Binding WarnInfos}">
                 

@@ -1,0 +1,46 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    xmlns:local="clr-namespace:WpfControls.Styles" >
+    <!--禁用边框颜色-->
+    <SolidColorBrush x:Key="EnabledBorderBrush">#FF7E7E7E</SolidColorBrush>
+
+    <!--默认外边框颜色-->
+    <SolidColorBrush x:Key="DefaultBorderBrush">#FF7E7E7E</SolidColorBrush>
+
+
+    <sys:Double x:Key="DefalutFontSize">19</sys:Double>
+
+    <sys:Double x:Key="ContentTitleFontSize">22</sys:Double>
+
+    <!--子菜单标题字体大小-->
+    <sys:Double x:Key="TitleFontSize">28</sys:Double>
+
+    <!--主菜单宽-->
+    <sys:Double x:Key="MainMenuWidth">240</sys:Double>
+
+    <SolidColorBrush x:Key="DefalutBg">#FFBEC0BF</SolidColorBrush>
+
+    <!--主题蓝-->
+    <SolidColorBrush x:Key="ThemeBlue">#FF006EB9</SolidColorBrush>
+
+
+    <sys:Double x:Key="SetDefalutFontSize">16</sys:Double>
+
+    <SolidColorBrush x:Key="SetDefalutBg">#FFE9E7E8</SolidColorBrush>
+
+    <!--主窗体标题栏背景色-->
+    <SolidColorBrush x:Key="WindowTitleBg">#FFF0F5FB</SolidColorBrush>
+    <!--主菜单背景色-->
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0"  x:Key="MainMenuBg">
+        <GradientStop Color="#FF1A87D7"/>
+        <GradientStop Color="#FF020D2C" Offset="1"/>
+        <GradientStop Color="#FF115691" Offset="0.232"/>
+    </LinearGradientBrush>
+
+    <!--默认控件圆角-->
+    <CornerRadius x:Key="DefalutCornerRadius">3</CornerRadius>
+
+    <!--图片外边框-->
+    <SolidColorBrush x:Key="GridBorderBrush">#FF51687A</SolidColorBrush>
+</ResourceDictionary>
