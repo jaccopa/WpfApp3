@@ -146,6 +146,8 @@
     <Resource Include="Font\FZHTJW.TTF" />
     <Resource Include="Font\FZHTK.TTF" />
     <Resource Include="Font\SIMHEI.TTF" />
+    <Resource Include="Font\SEGOEUI.TTF" />
+    <Resource Include="Font\SIMKAI.TTF" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
