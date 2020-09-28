@@ -8,8 +8,12 @@
         Title="WinFontFamily" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <Label>你们好，门</Label>
+
             <Label FontFamily="{StaticResource DefaultFontFamily}">你们好，门</Label>
+            <Label FontFamily="{StaticResource DefaultFontFamily1}">你们好，门</Label>
+            <Label FontFamily="{StaticResource DefaultFontFamily2}">你们好，门</Label>
+            <Label>你们好，门</Label>
+
         </StackPanel>
 
     </Grid>

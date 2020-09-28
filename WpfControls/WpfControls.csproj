@@ -144,6 +144,8 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Resource Include="Font\FZHTJW.TTF" />
+    <Resource Include="Font\FZHTK.TTF" />
+    <Resource Include="Font\SIMHEI.TTF" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

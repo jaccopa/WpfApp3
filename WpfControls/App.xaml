@@ -12,6 +12,8 @@
                 <ResourceDictionary Source="Resources\colors.xaml"/>
                 <ResourceDictionary>
                     <FontFamily x:Key="DefaultFontFamily">Font/#FZHTJW</FontFamily>
+                    <FontFamily x:Key="DefaultFontFamily1">Font/#FZHTK</FontFamily>
+                    <FontFamily x:Key="DefaultFontFamily2">Font/#SIMHEI</FontFamily>
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
 
