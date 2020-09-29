@@ -2,19 +2,18 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib"
                     >
-    <!-- 图标路径 向下 ∨-->
-    <PathGeometry x:Key="Geo_ToDown">
-        M0,0 M20,20 M0,5 10,15 20,5z
-    </PathGeometry>
+
+    <!--默认前景色-->
+    <SolidColorBrush x:Key="DefalutForgroud">#FF2C3134</SolidColorBrush>
 
     <!--禁用边框颜色-->
     <SolidColorBrush x:Key="EnabledBorderBrush">#FF7E7E7E</SolidColorBrush>
 
     <!--默认外边框颜色-->
-    <SolidColorBrush x:Key="DefaultBorderBrush">#FF7E7E7E</SolidColorBrush>
+    <SolidColorBrush x:Key="DefalutBorderBrush">#FF7E7E7E</SolidColorBrush>
 
 
-    <sys:Double x:Key="DefalutFontSize">19</sys:Double>
+    <sys:Double x:Key="DefalutFontSize">18</sys:Double>
 
     <sys:Double x:Key="ContentTitleFontSize">22</sys:Double>
 
@@ -49,16 +48,20 @@
     <!--图片外边框-->
     <SolidColorBrush x:Key="GridBorderBrush">#FF51687A</SolidColorBrush>
 
+    <PathGeometry x:Key="Geo_ToDown">
+        M0,0 M20,20 M0,5 10,15 20,5z
+    </PathGeometry>
+
     <Style TargetType="{x:Type DatePicker}" x:Key="DefaultDatePicker">
         <Setter Property="Foreground" Value="Black"/>
-        <Setter Property="Width" Value="200"/>
-        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="300"/>
+        <Setter Property="Height" Value="20"/>
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="IsTodayHighlighted" Value="True"/>
         <Setter Property="SelectedDateFormat" Value="Short"/>
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="{StaticResource DefaultBorderBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource DefalutBorderBrush}"/>
         <Setter Property="Background" Value="#FFF7F7F7"/>
         <Setter Property="CalendarStyle" Value="{DynamicResource DatePickerCalendar}"/>
         <Setter Property="Template">
@@ -167,7 +170,7 @@
                                                     </LinearGradientBrush>
                                                 </Rectangle.Stroke>
                                             </Rectangle>
-                                            <Path Grid.ColumnSpan="4" Grid.Column="0" Data="M 0 0 L 25 8 L 50 0" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="{TemplateBinding BorderThickness}" HorizontalAlignment="Center" Margin="4,3,4,3" Grid.Row="1" Grid.RowSpan="3" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center"/>
+                                            <Path Grid.ColumnSpan="4" Grid.Column="0" Data="M 0 0 L 4 6 L 8 0" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="{TemplateBinding BorderThickness}" HorizontalAlignment="Center" Margin="4,3,4,3" Grid.Row="1" Grid.RowSpan="3" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center"/>
                                             <Ellipse Visibility="Hidden" Grid.ColumnSpan="4" Fill="#FFFFFFFF" HorizontalAlignment="Center" Height="3" StrokeThickness="0" VerticalAlignment="Center" Width="3"/>
                                             <Border x:Name="DisabledVisual" Visibility="Hidden" BorderBrush="#B2FFFFFF" BorderThickness="1" Grid.ColumnSpan="4" CornerRadius="0,0,.5,.5" Opacity="0" Grid.Row="0" Grid.RowSpan="4"/>
                                         </Grid>
@@ -176,19 +179,22 @@
                             </Grid.Resources>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="20"/>
                             </Grid.ColumnDefinitions>
                             <!--<Button x:Name="PART_Button" Grid.Column="1" Foreground="{TemplateBinding Foreground}" Focusable="False" HorizontalAlignment="Left" Margin="3,0,3,0" Grid.Row="0" Template="{StaticResource DropDownButtonTemplate}" VerticalAlignment="Center" Width="20"/>-->
-                            <Button x:Name="PART_Button" Grid.Column="1" Foreground="{TemplateBinding Foreground}" Focusable="False" BorderThickness="0"
-                                          Width="40" Background="Transparent" Height="20" Margin="5,0">
-                                <Path Name="Arrow" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Fill="#FF929292"
-                  Data="{StaticResource Geo_ToDown}"   Width="10" Height="10" Stretch="Uniform">
-                                </Path>
-                            </Button>
+
                             <DatePickerTextBox x:Name="PART_TextBox" Text="{TemplateBinding Tag}" 
-                                                   Grid.Column="0" IsHitTestVisible="False" Focusable="False" HorizontalContentAlignment="Center" Grid.Row="0" 
+                                                   Grid.Column="0"  HorizontalContentAlignment="Center" Grid.Row="0" 
                                                    VerticalContentAlignment="Center" FontStyle="Normal"  Foreground="#484C50"  BorderThickness="0,0,0,0"
                                                    BorderBrush="#F0F0F0" Background="Transparent" />
+
+
+                            <Button x:Name="PART_Button" Grid.Column="1" Foreground="{TemplateBinding Foreground}" Focusable="False" BorderThickness="0" Width="20" Background="Transparent" Height="20" Margin="0,0">
+                                <Path Name="Arrow" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Fill="#FF929292" 
+                                      Data="{StaticResource Geo_ToDown}" Width="10" Height="10"   Stretch="Uniform" Margin="-33">
+                                </Path>
+                            </Button>
+                            
                             <Grid x:Name="PART_DisabledVisual" Grid.ColumnSpan="2" Grid.Column="0" IsHitTestVisible="False" Opacity="0" Grid.Row="0" >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
@@ -199,6 +205,7 @@
                                 <Popup x:Name="PART_Popup" AllowsTransparency="True" Placement="Bottom" 
                                            PlacementTarget="{Binding  RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DatePicker}}}" StaysOpen="False"/>
                             </Grid>
+
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -216,5 +223,5 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
 </ResourceDictionary>

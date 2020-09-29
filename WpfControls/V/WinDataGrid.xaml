@@ -23,7 +23,13 @@
             
             <Label></Label>
             
-            <DatePicker ></DatePicker>
+            <DatePicker x:Name="dp">
+                <DatePicker.Resources>
+                    <Style TargetType="DatePickerTextBox">
+                        <EventSetter Event="MouseLeftButtonUp" Handler="DatePickerTextBox_MouseLeftButtonUp"></EventSetter>
+                    </Style>
+                </DatePicker.Resources>
+            </DatePicker>
 
             <DataGrid ItemsSource="{Binding WarnInfos}">
                 

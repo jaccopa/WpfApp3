@@ -52,5 +52,10 @@ namespace WpfControls.V
             else
                 s.Stop();
         }
+
+        private void DatePickerTextBox_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            this.dp.IsDropDownOpen = true;
+        }
     }
 }
