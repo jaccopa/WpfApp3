@@ -28,6 +28,9 @@
                     <Style TargetType="DatePickerTextBox">
                         <EventSetter Event="MouseLeftButtonUp" Handler="DatePickerTextBox_MouseLeftButtonUp"></EventSetter>
                     </Style>
+                    <Style TargetType="RichTextBox">
+                        <EventSetter Event="MouseLeftButtonUp" Handler="DatePickerTextBox_MouseLeftButtonUp"></EventSetter>
+                    </Style>
                 </DatePicker.Resources>
             </DatePicker>
 

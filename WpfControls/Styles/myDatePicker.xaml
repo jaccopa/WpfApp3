@@ -179,21 +179,22 @@
                             </Grid.Resources>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="0"/>
                             </Grid.ColumnDefinitions>
                             <!--<Button x:Name="PART_Button" Grid.Column="1" Foreground="{TemplateBinding Foreground}" Focusable="False" HorizontalAlignment="Left" Margin="3,0,3,0" Grid.Row="0" Template="{StaticResource DropDownButtonTemplate}" VerticalAlignment="Center" Width="20"/>-->
 
                             <DatePickerTextBox x:Name="PART_TextBox" Text="{TemplateBinding Tag}" 
                                                    Grid.Column="0"  HorizontalContentAlignment="Center" Grid.Row="0" 
                                                    VerticalContentAlignment="Center" FontStyle="Normal"  Foreground="#484C50"  BorderThickness="0,0,0,0"
-                                                   BorderBrush="#F0F0F0" Background="Transparent" />
+                                                   BorderBrush="#F0F0F0" Background="Transparent" Focusable="False">
+                            </DatePickerTextBox>
 
 
-                            <Button x:Name="PART_Button" Grid.Column="1" Foreground="{TemplateBinding Foreground}" Focusable="False" BorderThickness="0" Width="20" Background="Transparent" Height="20" Margin="0,0">
+                            <Label x:Name="PART_Button" Grid.Column="1" Foreground="{TemplateBinding Foreground}" Focusable="False" BorderThickness="0" Width="20" Background="Transparent" Height="20" Margin="0,0">
                                 <Path Name="Arrow" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Fill="#FF929292" 
                                       Data="{StaticResource Geo_ToDown}" Width="10" Height="10"   Stretch="Uniform" Margin="-33">
                                 </Path>
-                            </Button>
+                            </Label>
                             
                             <Grid x:Name="PART_DisabledVisual" Grid.ColumnSpan="2" Grid.Column="0" IsHitTestVisible="False" Opacity="0" Grid.Row="0" >
                                 <Grid.ColumnDefinitions>
