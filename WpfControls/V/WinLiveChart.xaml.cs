@@ -24,6 +24,8 @@ namespace WpfControls.V
         {
             InitializeComponent();
 
+            byte[] ak = BitConverter.GetBytes(0x1234);
+
             this.Loaded += WinLiveChart_Loaded;
         }
 
