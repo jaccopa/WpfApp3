@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:local="clr-namespace:WpfControls"
+        xmlns:input="clr-namespace:System.Windows.Input;assembly=PresentationCore"
         mc:Ignorable="d"
         Title="WinTestBtn" Height="450" Width="800">
 
@@ -40,7 +41,9 @@
                 </i:Interaction.Triggers>
             </TextBox>
             <Label  Style="{StaticResource mylb}" Content="{Binding LbContent2}"/>
-            
+            <TextBox x:Name="txtregmatch" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="TextBox_PreviewTextInput" TextChanged="txtregmatch_TextChanged">
+                
+            </TextBox>
         </StackPanel>
     </Grid>
 </Window>
