@@ -37,7 +37,16 @@ namespace WpfControls
 
             if (txtregmatch.Text.StartsWith("0") && e.Text == "0")
             {
-                txtregmatch.Clear();
+                txtregmatch.Text.Remove(0,1);
+                txtregmatch.SelectionStart = txtregmatch.Text.Length;
+
+                e.Handled = true;
+                return;
+            }
+
+            if (txtregmatch.Text.Contains(".") && e.Text == ".")
+            {
+                e.Handled = true;
                 return;
             }
 
@@ -90,11 +99,13 @@ namespace WpfControls
 
         private void txtregmatch_TextChanged(object sender, TextChangedEventArgs e)
         {
+            string tmp = "";
             bool ret = false;
             foreach (var p in txtregmatch.Text)
             {
                 if (char.IsDigit(p) || p == '.')
                 {
+                    tmp += p;
                     continue;
                 }
                 else
@@ -105,7 +116,9 @@ namespace WpfControls
             }
             if (ret)
             {
-                txtregmatch.Clear();
+                txtregmatch.Text = tmp;
+                txtregmatch.SelectionStart = txtregmatch.Text.Length;
+
             }
         }
     }
