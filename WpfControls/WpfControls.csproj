@@ -92,6 +92,9 @@
     <Compile Include="V\WinTestBtn.xaml.cs">
       <DependentUpon>WinTestBtn.xaml</DependentUpon>
     </Compile>
+    <Compile Include="V\WinTransform.xaml.cs">
+      <DependentUpon>WinTransform.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -137,6 +140,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="V\WinTestBtn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="V\WinTransform.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
