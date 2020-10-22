@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfControls.V"
         mc:Ignorable="d"
-        Title="WinTransform" Height="450" Width="800">
+        Title="WinTransform" Width="350" Height="250">
     <Grid>
-        <Canvas x:Name="canva">
+        <Canvas x:Name="canva" Width="350" Height="250">
 
-            <Canvas.RenderTransform>
-                <RotateTransform CenterX="120" CenterY="100" Angle="180"></RotateTransform>
+            <Canvas.RenderTransform RenderTransformOrigin="0.5,0.5">
+                <RotateTransform  Angle="0"></RotateTransform>
             </Canvas.RenderTransform>
             
             <Ellipse Canvas.Left="100" Canvas.Top="50" Fill="Black" Width="10" Height="10"></Ellipse>
