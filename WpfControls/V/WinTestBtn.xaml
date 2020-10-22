@@ -44,6 +44,8 @@
             <TextBox x:Name="txtregmatch" input:InputMethod.IsInputMethodEnabled="False" PreviewTextInput="TextBox_PreviewTextInput" TextChanged="txtregmatch_TextChanged">
                 
             </TextBox>
+
+            <DatePicker CalendarOpened="DatePicker_CalendarOpened" Width="120"></DatePicker>
         </StackPanel>
     </Grid>
 </Window>

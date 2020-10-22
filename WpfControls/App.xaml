@@ -24,7 +24,7 @@
 
             <Style TargetType="Button" BasedOn="{StaticResource defaultButton}"/>
             <Style TargetType="ComboBox" BasedOn="{StaticResource defaultComboBox}"/>
-            <Style TargetType="DatePicker" BasedOn="{StaticResource DefaultDatePicker}"/>
+            <!--<Style TargetType="DatePicker" BasedOn="{StaticResource DefaultDatePicker}"/>-->
 
         </ResourceDictionary>
     </Application.Resources>
