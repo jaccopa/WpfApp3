@@ -3,15 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        WindowStartupLocation="CenterScreen"
         xmlns:local="clr-namespace:WpfControls.V"
         mc:Ignorable="d"
-        Title="WinTransform" Width="350" Height="250">
+        Title="WinTransform" Width="800" Height="600">
     <Grid>
         <Canvas x:Name="canva" Width="350" Height="250">
 
-            <Canvas.RenderTransform RenderTransformOrigin="0.5,0.5">
+            <!--<Canvas.RenderTransform RenderTransformOrigin="0.5,0.5">
                 <RotateTransform  Angle="0"></RotateTransform>
-            </Canvas.RenderTransform>
+            </Canvas.RenderTransform>-->
             
             <Ellipse Canvas.Left="100" Canvas.Top="50" Fill="Black" Width="10" Height="10"></Ellipse>
 

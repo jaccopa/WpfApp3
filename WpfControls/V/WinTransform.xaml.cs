@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -28,7 +29,21 @@ namespace WpfControls.V
 
         private void WinTransform_Loaded(object sender, RoutedEventArgs e)
         {
-            
+            Task.Run
+            (
+                ()=> 
+                {
+                for (; ; )
+                {
+                    Dispatcher.Invoke(() => {
+
+                        WinDialog.ShowDialog2("tip", "abc");
+                    });
+
+                        Thread.Sleep(100);
+                }
+            });
+      
         }
     }
 }
