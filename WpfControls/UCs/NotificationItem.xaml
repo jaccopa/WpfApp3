@@ -5,9 +5,9 @@
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
 			 xmlns:local="clr-namespace:WpfControls.UCs"
 			 mc:Ignorable="d" 
-			 d:DesignHeight="180" d:DesignWidth="320"
+			 d:DesignHeight="160" d:DesignWidth="250"
 			 x:Name="NotificationWindow"
-			 Background="Transparent" Opacity="0.8">
+			 Background="Transparent" Opacity="1">
 
 
     <!--<UserControl.Triggers>
@@ -175,6 +175,9 @@
 
 
     <UserControl.Resources>
+
+        <SolidColorBrush  Color="#FFE7EDF0" Opacity="0.0" x:Key="OpacityBrush"/>
+        
         <SolidColorBrush x:Key="ButtonColor" Color="#FF073F79" />
         <SolidColorBrush x:Key="BackColor" Color="#FFE7EDF0"/>
 
@@ -189,14 +192,21 @@
             <Setter Property="Border.CornerRadius" Value="5,5,5,5"/>
         </Style>
     </UserControl.Resources>
-    
-    <Grid PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown">
-        <Border CornerRadius="5" Background="{StaticResource ResourceKey=BackColor}">
-            <Border CornerRadius="5,5,0,0" Background="{StaticResource ResourceKey=ButtonColor}" Height="36" VerticalAlignment="Top"/>
+
+    <Grid PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown" >
+        <Border CornerRadius="5 5 0 0" Background="{StaticResource ResourceKey=OpacityBrush}" BorderThickness="0">
+            <Border CornerRadius="5" Height="120" VerticalAlignment="Top" BorderThickness="0">
+                <StackPanel>
+                    <Border CornerRadius="5,5,0,0" Background="{StaticResource ResourceKey=ButtonColor}" Height="35" VerticalAlignment="Top" BorderThickness="0"/>
+                    <Border CornerRadius="0,0,5,5" Background="{StaticResource ResourceKey=BackColor}" Height="85" VerticalAlignment="Top" BorderThickness="0"/>
+
+                </StackPanel>
+            </Border>
+            
         </Border>
 
-        <Grid Background="Transparent">
-            <StackPanel>
+        <Grid Background="Transparent" >
+            <StackPanel >
                 <Label Foreground="White" FontSize="18" HorizontalAlignment="Center" x:Name="xtitle" Height="36" Content="{Binding Title}"></Label>
                 <Label Margin="0 30" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="xct" Content="{Binding Content}"></Label>
             </StackPanel>

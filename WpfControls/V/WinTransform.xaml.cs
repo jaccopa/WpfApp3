@@ -93,7 +93,7 @@ namespace WpfControls.V
 
             for (; ; )
             {
-                App.Current.Dispatcher?.Invoke(() =>
+                App.Current?.Dispatcher?.Invoke(() =>
                 {
                     _dailogService.ShowNotificationWindow(newNotification, configuration);
                 });
