@@ -1,0 +1,145 @@
+﻿how to generate a dump file on application crash in c#
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
+using System.Runtime.InteropServices;
+using System.IO;
+
+namespace DBGHelp_Sample
+{
+    static class Program
+    {
+        /// 
+        /// The main entry point for the application.
+        /// 
+        [STAThread]
+        static void Main()
+        {
+            AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1());
+        }
+
+        public static class MINIDUMP_TYPE
+        {
+            public const int MiniDumpNormal = 0x00000000;
+            public const int MiniDumpWithDataSegs = 0x00000001;
+            public const int MiniDumpWithFullMemory = 0x00000002;
+            public const int MiniDumpWithHandleData = 0x00000004;
+            public const int MiniDumpFilterMemory = 0x00000008;
+            public const int MiniDumpScanMemory = 0x00000010;
+            public const int MiniDumpWithUnloadedModules = 0x00000020;
+            public const int MiniDumpWithIndirectlyReferencedMemory = 0x00000040;
+            public const int MiniDumpFilterModulePaths = 0x00000080;
+            public const int MiniDumpWithProcessThreadData = 0x00000100;
+            public const int MiniDumpWithPrivateReadWriteMemory = 0x00000200;
+            public const int MiniDumpWithoutOptionalData = 0x00000400;
+            public const int MiniDumpWithFullMemoryInfo = 0x00000800;
+            public const int MiniDumpWithThreadInfo = 0x00001000;
+            public const int MiniDumpWithCodeSegs = 0x00002000;
+        }
+
+        [DllImport("dbghelp.dll")]
+        public static extern bool MiniDumpWriteDump(IntPtr hProcess,
+                                                    Int32 ProcessId,
+                                                    IntPtr hFile,
+                                                    int DumpType,
+                                                    IntPtr ExceptionParam,
+                                                    IntPtr UserStreamParam,
+                                                    IntPtr CallackParam);
+
+        private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            CreateMiniDump();
+        }
+
+        private static void CreateMiniDump()
+        {
+            using(FileStream fs = new FileStream("UnhandledDump.dmp", FileMode.Create))
+            {
+                using(System.Diagnostics.Process process = System.Diagnostics.Process.GetCurrentProcess())
+                {
+                    MiniDumpWriteDump(process.Handle,
+                                                     process.Id,
+                                                     fs.SafeFileHandle.DangerousGetHandle(),
+                                                     MINIDUMP_TYPE.MiniDumpNormal,
+                                                     IntPtr.Zero,
+                                                     IntPtr.Zero,
+                                                     IntPtr.Zero);
+                }
+            }
+        }
+    }
+}
+Another Option:
+ using System;
+ using System.ComponentModel;
+ using System.Diagnostics;
+ using System.IO;
+ using System.Runtime.InteropServices;
+
+ namespace ConsoleApplication29
+ {
+ class Program
+ {
+ [Flags]
+ enum MINIDUMP_TYPE: uint
+ {
+ MiniDumpNormal = 0x00000000,
+ MiniDumpWithDataSegs = 0x00000001,
+ MiniDumpWithFullMemory = 0x00000002,
+ MiniDumpWithHandleData = 0x00000004,
+ MiniDumpFilterMemory = 0x00000008,
+ MiniDumpScanMemory = 0x00000010,
+ MiniDumpWithUnloadedModules = 0x00000020,
+ MiniDumpWithIndirectlyReferencedMemory = 0x00000040,
+ MiniDumpFilterModulePaths = 0x00000080,
+ MiniDumpWithProcessThreadData = 0x00000100,
+ MiniDumpWithPrivateReadWriteMemory = 0x00000200,
+ MiniDumpWithoutOptionalData = 0x00000400,
+ MiniDumpWithFullMemoryInfo = 0x00000800,
+ MiniDumpWithThreadInfo = 0x00001000,
+ MiniDumpWithCodeSegs = 0x00002000,
+ MiniDumpWithoutAuxiliaryState = 0x00004000,
+ MiniDumpWithFullAuxiliaryState = 0x00008000,
+ MiniDumpWithPrivateWriteCopyMemory = 0x00010000,
+ MiniDumpIgnoreInaccessibleMemory = 0x00020000,
+ MiniDumpWithTokenInformation = 0x00040000
+ };
+
+ [DllImport ("DbgHelp.dll", SetLastError = true)]
+ [Return: MarshalAs (UnmanagedType. Bool)]
+ static extern bool MiniDumpWriteDump (
+ IntPtr hProcess,
+ int ProcessId,
+ IntPtr hFile,
+ MINIDUMP_TYPE DumpType,
+ IntPtr ExceptionParam,
+ IntPtr UserStreamParam,
+ IntPtr CallbackParam
+ );
+
+ static void Main (string [] args)
+ {
+ using (var process = Process. GetProcessesByName ("idaq") [0])
+ using (var file = File. Open ("mem.dmp", FileMode. Create, FileAccess. Write))
+ {
+ var dumpType = MINIDUMP_TYPE. MiniDumpNormal;
+
+ if (! MiniDumpWriteDump (
+ process. Handle, process. Id, file. Handle,
+ dumpType, IntPtr. Zero, IntPtr. Zero, IntPtr. Zero)
+ )
+ throw new Win32Exception (Marshal. GetLastWin32Error ());
+ }
+ }
+ }
+ } 
+
+
+ private unsafe void AccessViolation() // requiert /unsafe
+{
+var b = *(byte*)8762765876;
+}

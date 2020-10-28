@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfControls", "WpfControls\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{8267012E-A8E9-4394-B2DC-5A2B0BB76E8C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dump", "dump\dump.csproj", "{599F8718-A77E-44FC-8952-D482FA4290AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfAppdump", "WpfAppdump\WpfAppdump.csproj", "{69D1226F-C465-4678-9D2D-9219982038BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{8267012E-A8E9-4394-B2DC-5A2B0BB76E8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8267012E-A8E9-4394-B2DC-5A2B0BB76E8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8267012E-A8E9-4394-B2DC-5A2B0BB76E8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{599F8718-A77E-44FC-8952-D482FA4290AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{599F8718-A77E-44FC-8952-D482FA4290AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{599F8718-A77E-44FC-8952-D482FA4290AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{599F8718-A77E-44FC-8952-D482FA4290AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69D1226F-C465-4678-9D2D-9219982038BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69D1226F-C465-4678-9D2D-9219982038BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69D1226F-C465-4678-9D2D-9219982038BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69D1226F-C465-4678-9D2D-9219982038BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
