@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using WPFNotification;
+
 namespace WpfControls.V
 {
     /// <summary>
@@ -29,21 +31,37 @@ namespace WpfControls.V
 
         private void WinTransform_Loaded(object sender, RoutedEventArgs e)
         {
-            Task.Run
-            (
-                ()=> 
-                {
-                for (; ; )
-                {
-                    Dispatcher.Invoke(() => {
 
-                        WinDialog.ShowDialog2("tip", "abc");
-                    });
+            Thread thread = new Thread(DialogTask);
+            thread.Start();
+            //Task.Run
+            //(
+            //    ()=> 
+            //    {
+            //    for (; ; )
+            //    {
+            //        Dispatcher.Invoke(() => {
 
-                        Thread.Sleep(100);
-                }
-            });
-      
+            //            WinDialog.ShowDialog2("tip", "abc");
+            //        });
+
+            //            Thread.Sleep(100);
+            //    }
+            //});
+        }
+
+        private void DialogTask()
+        {
+            for (; ; )
+            {
+                App.Current.Dispatcher?.Invoke(() =>
+                {
+
+                    WinDialog.ShowDialog2("tip", "abc");
+                });
+
+                Thread.Sleep(100);
+            }
         }
     }
 }
