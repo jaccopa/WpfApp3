@@ -19,6 +19,18 @@ namespace WpfAppdump
             app.Run(new MainWindow());
         }
 
+
+
+        [DllImport("dbghelp.dll")]
+        public static extern bool MiniDumpWriteDump(IntPtr hProcess,
+                                                    Int32 ProcessId,
+                                                    IntPtr hFile,
+                                                    int DumpType,
+                                                    IntPtr ExceptionParam,
+                                                    IntPtr UserStreamParam,
+                                                    IntPtr CallackParam);
+
+
         public static class MINIDUMP_TYPE
         {
             public const int MiniDumpNormal = 0x00000000;
@@ -43,13 +55,33 @@ namespace WpfAppdump
             CreateMiniDump();
         }
 
+        //private static void CreateMiniDump()
+        //{
+
+        //    //MiniDump.TryDump("error.dmp");
+
+        //    //using (FileStream fs = new FileStream("UnhandledDump.dmp", FileMode.Create))
+        //    {
+        //        //using (System.Diagnostics.Process process = System.Diagnostics.Process.GetCurrentProcess())
+        //        {
+        //            //MiniDump.TryDump("error.dmp");
+        //        }
+        //    }
+        //}
+
         private static void CreateMiniDump()
         {
-            //using (FileStream fs = new FileStream("UnhandledDump.dmp", FileMode.Create))
+            using (FileStream fs = new FileStream("UnhandledDump.dmp", FileMode.Create))
             {
-                //using (System.Diagnostics.Process process = System.Diagnostics.Process.GetCurrentProcess())
+                using (System.Diagnostics.Process process = System.Diagnostics.Process.GetCurrentProcess())
                 {
-                    MiniDump.TryDump("error.dmp");
+                    MiniDumpWriteDump(process.Handle,
+                                                     process.Id,
+                                                     fs.SafeFileHandle.DangerousGetHandle(),
+                                                     MINIDUMP_TYPE.MiniDumpNormal,
+                                                     IntPtr.Zero,
+                                                     IntPtr.Zero,
+                                                     IntPtr.Zero);
                 }
             }
         }
