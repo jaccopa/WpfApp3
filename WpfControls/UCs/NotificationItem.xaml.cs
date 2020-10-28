@@ -29,7 +29,7 @@ namespace WpfControls.UCs
         string _ttitle; 
         string _tcontent;
 
-        int _lifetime = 1;
+        int _lifetime = 1000;
 
         public NotificationItem(string ttitle,string tcontent,int lifetime)
         {
@@ -46,17 +46,19 @@ namespace WpfControls.UCs
 
         private void NotificationItem_Loaded(object sender, RoutedEventArgs e)
         {
-            //this.xtitle.Content = _ttitle;
-            //this.xct.Content = _tcontent;
+            this.xtitle.Content = _ttitle;
+            this.xct.Content = _tcontent;
 
             //Task.Run
-            //(()=> {
+            //(() =>
+            //{
 
             //    Thread.Sleep(_lifetime);
 
-            //    Dispatcher?.Invoke(()=> {
+            //    Dispatcher?.Invoke(() =>
+            //    {
             //        Window parentWindow = Window.GetWindow(this);
-            //        this.Visibility     = Visibility.Hidden;
+            //        this.Visibility = Visibility.Hidden;
             //        parentWindow.Close();
             //    });
 
@@ -64,6 +66,13 @@ namespace WpfControls.UCs
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Window parentWindow = Window.GetWindow(this);
+            this.Visibility = Visibility.Hidden;
+            parentWindow.Close();
+        }
+
+        private void Grid_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Window parentWindow = Window.GetWindow(this);
             this.Visibility = Visibility.Hidden;

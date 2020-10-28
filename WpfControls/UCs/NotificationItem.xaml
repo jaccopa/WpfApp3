@@ -7,10 +7,10 @@
 			 mc:Ignorable="d" 
 			 d:DesignHeight="180" d:DesignWidth="320"
 			 x:Name="NotificationWindow"
-			 Background="Transparent">
+			 Background="Transparent" Opacity="0.6">
 
 
-    <UserControl.Triggers>
+    <!--<UserControl.Triggers>
         <EventTrigger RoutedEvent="Button.Click" SourceName="CloseButton">
             <BeginStoryboard>
                 <Storyboard >
@@ -171,10 +171,10 @@
                 </StackPanel>
             </Grid>
         </Border>
-    </Grid>
+    </Grid>-->
 
 
-    <!--<UserControl.Resources>
+    <UserControl.Resources>
         <SolidColorBrush x:Key="ButtonColor" Color="#FF073F79" />
         <SolidColorBrush x:Key="BackColor" Color="#FFE7EDF0"/>
 
@@ -190,7 +190,7 @@
         </Style>
     </UserControl.Resources>
     
-    <Grid>
+    <Grid PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown">
         <Border CornerRadius="5" Background="{StaticResource ResourceKey=BackColor}">
             <Border CornerRadius="5,5,0,0" Background="{StaticResource ResourceKey=ButtonColor}" Height="36" VerticalAlignment="Top"/>
         </Border>
@@ -201,5 +201,5 @@
                 <Label Margin="0 30" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="xct" Content="{Binding Content}"></Label>
             </StackPanel>
         </Grid>
-	</Grid>-->
+	</Grid>
 </UserControl>

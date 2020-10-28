@@ -88,7 +88,7 @@ namespace WpfControls.V
                 Content = "I would like to request for vacation from 20 / 12 / 2015 to 30 / 12 / 2015............."
             };
 
-            var configuration = new NotificationConfiguration(TimeSpan.Zero, null,
+            var configuration = new NotificationConfiguration(new TimeSpan(0,0,5), null,
                     null, "MailNotificationTemplate",NotificationFlowDirection.RightBottom);
 
             for (; ; )
