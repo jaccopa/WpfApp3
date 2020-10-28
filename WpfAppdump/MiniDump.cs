@@ -38,7 +38,7 @@ namespace WpfAppdump
             ValidTypeFlags = 0x0003ffff,
         }
 
-        enum ExceptionInfo
+        public enum ExceptionInfo
         {
             None,
             Present
@@ -50,7 +50,7 @@ namespace WpfAppdump
         //    BOOL ClientPointers;
         //} MINIDUMP_EXCEPTION_INFORMATION, *PMINIDUMP_EXCEPTION_INFORMATION;
         [StructLayout(LayoutKind.Sequential, Pack = 4)]  // Pack=4 is important! So it works also for x64!
-        struct MiniDumpExceptionInformation
+        public struct MiniDumpExceptionInformation
         {
             public uint ThreadId;
             public IntPtr ExceptionPointers;
@@ -72,16 +72,16 @@ namespace WpfAppdump
         // Overload requiring MiniDumpExceptionInformation
         [DllImport("dbghelp.dll", EntryPoint = "MiniDumpWriteDump", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode, ExactSpelling = true, SetLastError = true)]
 
-        static extern bool MiniDumpWriteDump(IntPtr hProcess, uint processId, SafeHandle hFile, uint dumpType, ref MiniDumpExceptionInformation expParam, IntPtr userStreamParam, IntPtr callbackParam);
+        public static extern bool MiniDumpWriteDump(IntPtr hProcess, uint processId, SafeHandle hFile, uint dumpType, ref MiniDumpExceptionInformation expParam, IntPtr userStreamParam, IntPtr callbackParam);
 
         // Overload supporting MiniDumpExceptionInformation == NULL
         [DllImport("dbghelp.dll", EntryPoint = "MiniDumpWriteDump", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode, ExactSpelling = true, SetLastError = true)]
-        static extern bool MiniDumpWriteDump(IntPtr hProcess, uint processId, SafeHandle hFile, uint dumpType, IntPtr expParam, IntPtr userStreamParam, IntPtr callbackParam);
+        public static extern bool MiniDumpWriteDump(IntPtr hProcess, uint processId, SafeHandle hFile, uint dumpType, IntPtr expParam, IntPtr userStreamParam, IntPtr callbackParam);
 
         [DllImport("kernel32.dll", EntryPoint = "GetCurrentThreadId", ExactSpelling = true)]
-        static extern uint GetCurrentThreadId();
+        public static extern uint GetCurrentThreadId();
 
-        static bool Write(SafeHandle fileHandle, Option options, ExceptionInfo exceptionInfo)
+        public static bool Write(SafeHandle fileHandle, Option options, ExceptionInfo exceptionInfo)
         {
             Process currentProcess = Process.GetCurrentProcess();
             IntPtr currentProcessHandle = currentProcess.Handle;
@@ -97,7 +97,7 @@ namespace WpfAppdump
             return exp.ExceptionPointers == IntPtr.Zero ? MiniDumpWriteDump(currentProcessHandle, currentProcessId, fileHandle, (uint)options, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero) : MiniDumpWriteDump(currentProcessHandle, currentProcessId, fileHandle, (uint)options, ref exp, IntPtr.Zero, IntPtr.Zero);
         }
 
-        static bool Write(SafeHandle fileHandle, Option dumpType)
+        public static bool Write(SafeHandle fileHandle, Option dumpType)
         {
             return Write(fileHandle, dumpType, ExceptionInfo.None);
         }
