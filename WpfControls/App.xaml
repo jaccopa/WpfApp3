@@ -2,6 +2,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+
+
                 <ResourceDictionary Source="Styles\myDatePicker.xaml"/>
                 <ResourceDictionary Source="Styles\myComboBox.xaml"/>
                 <ResourceDictionary Source="Styles\myButton.xaml"/>
@@ -17,6 +19,9 @@
                     </FontFamily>
                 </ResourceDictionary>
                 <ResourceDictionary Source="/WPFNotification;component/Assets/NotificationUI.xaml"/>
+
+                <ResourceDictionary Source="Resources\MailNotificationUI.xaml" />
+                
             </ResourceDictionary.MergedDictionaries>
 
             <Style TargetType="Button" BasedOn="{StaticResource defaultButton}"/>

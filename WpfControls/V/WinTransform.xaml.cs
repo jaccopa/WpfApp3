@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommonServiceLocator;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,8 +13,11 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using WpfControls.UCs;
 using WPFNotification;
+using WPFNotification.Core.Configuration;
+using WPFNotification.Model;
+using WPFNotification.Services;
 
 namespace WpfControls.V
 {
@@ -29,11 +33,15 @@ namespace WpfControls.V
             this.Loaded += WinTransform_Loaded;
         }
 
+
+        private readonly INotificationDialogService _dailogService = new  NotificationDialogService();
+
         private void WinTransform_Loaded(object sender, RoutedEventArgs e)
         {
 
-            Thread thread = new Thread(DialogTask);
+            Thread thread = new Thread(MyToastTask);
             thread.Start();
+
             //Task.Run
             //(
             //    ()=> 
@@ -49,6 +57,51 @@ namespace WpfControls.V
             //    }
             //});
         }
+
+        private void ToastTask()
+        {
+            var newNotification = new Notification()
+            {
+                //ImgURL = "Resources\\blue3.jpg",
+                Title = "Machine error",
+                Message = "Error!! Please check your Machine Code and Try Again"
+            };
+
+            for (; ; )
+            {
+                App.Current.Dispatcher?.Invoke(() =>
+                {
+                    _dailogService.ShowNotificationWindow(newNotification);
+                });
+
+                Thread.Sleep(5 * 1000);
+            }
+        }
+
+
+        private void MyToastTask()
+        {
+            var newNotification = new MailNotification()
+            {
+                Title = "Vacation Request",
+                Sender = "Mohamed Magdy",
+                Content = "I would like to request for vacation from 20 / 12 / 2015 to 30 / 12 / 2015............."
+            };
+
+            var configuration = new NotificationConfiguration(TimeSpan.Zero, null,
+                    null, "MailNotificationTemplate",NotificationFlowDirection.RightBottom);
+
+            for (; ; )
+            {
+                App.Current.Dispatcher?.Invoke(() =>
+                {
+                    _dailogService.ShowNotificationWindow(newNotification, configuration);
+                });
+
+                Thread.Sleep(5 * 1000);
+            }
+        }
+
 
         private void DialogTask()
         {
