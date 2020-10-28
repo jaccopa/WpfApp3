@@ -98,7 +98,7 @@ namespace WpfControls.V
                     _dailogService.ShowNotificationWindow(newNotification, configuration);
                 });
 
-                Thread.Sleep(5 * 1000);
+                Thread.Sleep(4 * 1000);
             }
         }
 

@@ -7,7 +7,7 @@
 			 mc:Ignorable="d" 
 			 d:DesignHeight="180" d:DesignWidth="320"
 			 x:Name="NotificationWindow"
-			 Background="Transparent" Opacity="0.6">
+			 Background="Transparent" Opacity="0.8">
 
 
     <!--<UserControl.Triggers>
