@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dump", "dump\dump.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfAppdump", "WpfAppdump\WpfAppdump.csproj", "{69D1226F-C465-4678-9D2D-9219982038BD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp2", "ConsoleApp2\ConsoleApp2.csproj", "{A0FCD261-DAE2-40E9-9679-39F161E378CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{69D1226F-C465-4678-9D2D-9219982038BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69D1226F-C465-4678-9D2D-9219982038BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69D1226F-C465-4678-9D2D-9219982038BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0FCD261-DAE2-40E9-9679-39F161E378CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0FCD261-DAE2-40E9-9679-39F161E378CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0FCD261-DAE2-40E9-9679-39F161E378CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0FCD261-DAE2-40E9-9679-39F161E378CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
