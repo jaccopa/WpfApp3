@@ -1,6 +1,7 @@
 ﻿using CommonServiceLocator;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -13,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfControls.Helper;
 using WpfControls.UCs;
 using WPFNotification;
 using WPFNotification.Core.Configuration;
@@ -39,7 +41,7 @@ namespace WpfControls.V
         private void WinTransform_Loaded(object sender, RoutedEventArgs e)
         {
 
-            Thread thread = new Thread(MyToastTask);
+            Thread thread = new Thread(ImageArrayCmp);
             thread.Start();
 
             //Task.Run
@@ -57,6 +59,19 @@ namespace WpfControls.V
             //    }
             //});
         }
+
+        private void ImageArrayCmp()
+        {
+            Bitmap bitmap = new Bitmap("blue3.jpg");
+            byte[] vs1 = ImageHelper.Instance.ImageToArrayFast(bitmap);
+            byte[] vs2 = ImageHelper.Instance.ImageToArray(bitmap);
+
+            var s1 = vs1.ToString();
+            var s2 = vs2.ToString();
+
+            int k = string.Compare(s1,s2);
+        }
+
 
         private void ToastTask()
         {
