@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfControls.V"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="WinDialog" Height="220" Width="361" WindowStyle="None" ResizeMode="NoResize" Background="{x:Null}" AllowsTransparency="True">
+        Title="WinDialog" Height="220" Width="361" WindowStyle="None" ResizeMode="NoResize" Background="{x:Null}" AllowsTransparency="True" FontFamily="abcd">
     <Window.Resources>
         <SolidColorBrush x:Key="ButtonColor" Color="#FF073F79" />
         <SolidColorBrush x:Key="BackColor" Color="#FFE7EDF0"/>

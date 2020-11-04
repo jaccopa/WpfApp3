@@ -23,6 +23,41 @@ using WPFNotification.Services;
 
 namespace WpfControls.V
 {
+    public enum ArmModeStatus
+    {
+        MAuto,
+        MKeyboard,
+        MJStk,
+    }
+
+    public class ArmStatus
+    {
+        public static ArmModeStatus armModeStatus = ArmModeStatus.MAuto;
+
+        private static List<DateTime> DateTimeList = new List<DateTime>(3) { DateTime.Now, DateTime.Now, DateTime.Now };
+
+        //public static bool Running { get { return !CControlCenter.RobotIsVacant; } }
+
+        public static bool IsCheckOK(ArmModeStatus armModeStatus, int tm)
+        {
+            DateTime dateTime = DateTime.Now;
+            TimeSpan ts = dateTime - DateTimeList[(int)armModeStatus];
+            if (ts.TotalSeconds >= tm)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static void Update(ArmModeStatus armModeStatus)
+        {
+            DateTimeList[(int)armModeStatus] = DateTime.Now;
+        }
+    }
+
     /// <summary>
     /// WinTransform.xaml 的交互逻辑
     /// </summary>
@@ -40,7 +75,20 @@ namespace WpfControls.V
 
         private void WinTransform_Loaded(object sender, RoutedEventArgs e)
         {
-            InvokeTest();
+            List<DateTime> DateTimeList = new List<DateTime>(3) { DateTime.Now, DateTime.Now, DateTime.Now };
+            //Console.Read();
+
+            Thread.Sleep(2 * 1000);
+
+            ArmStatus.Update(ArmModeStatus.MAuto);
+
+            Thread.Sleep(2 * 1000);
+
+            ArmStatus.Update(ArmModeStatus.MJStk);
+
+            bool ret = ArmStatus.IsCheckOK(ArmModeStatus.MAuto,2);
+
+            //InvokeTest();
 
             //Thread thread = new Thread(ImageArrayCmp);
             //thread.Start();
