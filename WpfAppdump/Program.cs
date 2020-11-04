@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Threading;
 
 namespace WpfAppdump
 {
@@ -14,9 +16,17 @@ namespace WpfAppdump
         [STAThread]
         static void Main(string[] args)
         {
+            //try
+            //{
             App app = new App();
+            app.DispatcherUnhandledException -= App_DispatcherUnhandledException;
             app.DispatcherUnhandledException += App_DispatcherUnhandledException;
             app.Run(new MainWindow());
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.ToString());
+            //}
         }
 
 
@@ -53,6 +63,13 @@ namespace WpfAppdump
         private static void App_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
         {
             CreateMiniDump();
+
+            //Thread.Sleep(2000);
+            //Process proc = new Process();
+            //proc.StartInfo.FileName = @"WpfAppdump.exe";
+            //proc.StartInfo.WorkingDirectory = Path.GetDirectoryName(@"WpfAppdump.exe");
+            //proc.Start();
+
         }
 
         //private static void CreateMiniDump()

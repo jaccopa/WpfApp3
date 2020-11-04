@@ -65,7 +65,7 @@ namespace WpfControls.V
                     Dispatcher.Invoke(
                     ()=>
                     {
-                        this.btnOK.RaiseEvent(new RoutedEventArgs(Button.ClickEvent, btnOK));
+                        //this.btnOK.RaiseEvent(new RoutedEventArgs(Button.ClickEvent, btnOK));
                     }
                     );
                 }

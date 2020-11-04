@@ -36,6 +36,10 @@ namespace WpfAppdump
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             Person p = null;
+
+            //throw new System.DivideByZeroException();
+            throw new System.Runtime.InteropServices.COMException();
+
             // NullPointerException will happen in next line
             Console.WriteLine("{0}-{1}", p.ID, p.Name);
             //Console.ReadKey();

@@ -40,9 +40,10 @@ namespace WpfControls.V
 
         private void WinTransform_Loaded(object sender, RoutedEventArgs e)
         {
+            InvokeTest();
 
-            Thread thread = new Thread(ImageArrayCmp);
-            thread.Start();
+            //Thread thread = new Thread(ImageArrayCmp);
+            //thread.Start();
 
             //Task.Run
             //(
@@ -58,6 +59,13 @@ namespace WpfControls.V
             //            Thread.Sleep(100);
             //    }
             //});
+        }
+
+        private void InvokeTest()
+        {
+            Thread.Sleep(1000);
+
+            WinDialog.ShowDialog2("abc","123");
         }
 
         private void ImageArrayCmp()
