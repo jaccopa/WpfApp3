@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\test\regress.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\test\regress.gen.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\test\regress_buffer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\test\regress_bufferevent.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\test\regress_dns.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\test\regress_et.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\test\regress_finalize.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\test\regress_http.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\test\regress_listener.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\test\regress_main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\test\regress_minheap.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\test\regress_rpc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\test\regress_testutils.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\test\regress_util.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\test\tinytest.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\test\regress_iocp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\test\regress_thread.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\test\regress_zlib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\test\regress_ssl.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\test\regress.gen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\test\regress_testutils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\joe\source\repos\WpfApp3\calibevent\src\build\CMakeFiles\c8e5f68559f2e92353fd5a55725e6167\regress.gen.c.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{D1B23E11-9827-3C05-8E25-814264E08BF2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{BC7494A6-EC60-30A0-9893-A443E073C74E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{C0928D4D-7790-3BEE-AD36-936948F44CA2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

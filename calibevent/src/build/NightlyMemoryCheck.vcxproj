@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C3A2B551-8604-3D59-9EB7-E5BB49F54741}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>NightlyMemoryCheck</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\joe\source\repos\WpfApp3\calibevent\src\build\include;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\include;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\compat;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable;C:\ProgramData\Anaconda3\Library\include;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\.\WIN32-Code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\joe\source\repos\WpfApp3\calibevent\src\build\include;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\include;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\compat;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable;C:\ProgramData\Anaconda3\Library\include;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\.\WIN32-Code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\joe\source\repos\WpfApp3\calibevent\src\build\CMakeFiles\3f366f4a69595e9562fbe81e48db05e1\NightlyMemoryCheck.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\bin\ctest.exe -C $(Configuration) -D NightlyMemoryCheck
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\joe\source\repos\WpfApp3\calibevent\src\build\CMakeFiles\NightlyMemoryCheck</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\bin\ctest.exe -C $(Configuration) -D NightlyMemoryCheck
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\joe\source\repos\WpfApp3\calibevent\src\build\CMakeFiles\NightlyMemoryCheck</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/joe/source/repos/WpfApp3/calibevent/src/libevent-2.1.12-stable/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\bin\cmake.exe -SC:/Users/joe/source/repos/WpfApp3/calibevent/src/libevent-2.1.12-stable -BC:/Users/joe/source/repos/WpfApp3/calibevent/src/build --check-stamp-file C:/Users/joe/source/repos/WpfApp3/calibevent/src/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CMakeCInformation.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CMakeCommonLanguageInclude.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CMakeGenericSystem.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CMakeInitializeConfigs.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CMakeLanguageInformation.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CMakeParseArguments.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CMakeRCInformation.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CMakeSystemSpecificInformation.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CMakeSystemSpecificInitialize.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CTest.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CTestTargets.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CTestUseLaunchers.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CheckCCompilerFlag.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CheckCSourceCompiles.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CheckCXXSourceCompiles.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CheckIncludeFile.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CheckIncludeFileCXX.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CheckIncludeFiles.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CheckStructHasMember.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CheckSymbolExists.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CheckTypeSize.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CheckVariableExists.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\Compiler\MSVC-C.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\DartConfiguration.tcl.in;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\FindGit.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\FindOpenSSL.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\FindPackageHandleStandardArgs.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\FindPackageMessage.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\FindPythonInterp.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\FindZLIB.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\Platform\Windows-MSVC-C.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\Platform\Windows-MSVC.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\Platform\Windows.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\Platform\WindowsPaths.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\SelectLibraryConfigurations.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\build\CMakeFiles\3.15.0-rc2\CMakeCCompiler.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\build\CMakeFiles\3.15.0-rc2\CMakeRCCompiler.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\build\CMakeFiles\3.15.0-rc2\CMakeSystem.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\cmake\AddCompilerFlags.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\cmake\AddEventLibrary.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\cmake\CheckConstExists.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\cmake\CheckFileOffsetBits.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\cmake\CheckFunctionKeywords.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\cmake\CheckPrototypeDefinition.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\cmake\LibeventConfig.cmake.in;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\cmake\LibeventConfigVersion.cmake.in;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\cmake\Macros.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\cmake\Uninstall.cmake.in;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\cmake\VersionViaGit.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\evconfig-private.h.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\event-config.h.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\libevent.pc.in;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\libevent_core.pc.in;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\libevent_extra.pc.in;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\libevent_openssl.pc.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\joe\source\repos\WpfApp3\calibevent\src\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/joe/source/repos/WpfApp3/calibevent/src/libevent-2.1.12-stable/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\bin\cmake.exe -SC:/Users/joe/source/repos/WpfApp3/calibevent/src/libevent-2.1.12-stable -BC:/Users/joe/source/repos/WpfApp3/calibevent/src/build --check-stamp-file C:/Users/joe/source/repos/WpfApp3/calibevent/src/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CMakeCInformation.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CMakeCommonLanguageInclude.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CMakeGenericSystem.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CMakeInitializeConfigs.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CMakeLanguageInformation.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CMakeParseArguments.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CMakeRCInformation.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CMakeSystemSpecificInformation.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CMakeSystemSpecificInitialize.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CTest.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CTestTargets.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CTestUseLaunchers.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CheckCCompilerFlag.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CheckCSourceCompiles.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CheckCXXSourceCompiles.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CheckIncludeFile.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CheckIncludeFileCXX.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CheckIncludeFiles.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CheckStructHasMember.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CheckSymbolExists.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CheckTypeSize.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\CheckVariableExists.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\Compiler\MSVC-C.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\DartConfiguration.tcl.in;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\FindGit.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\FindOpenSSL.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\FindPackageHandleStandardArgs.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\FindPackageMessage.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\FindPythonInterp.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\FindZLIB.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\Platform\Windows-MSVC-C.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\Platform\Windows-MSVC.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\Platform\Windows.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\Platform\WindowsPaths.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\CMake\share\cmake-3.15\Modules\SelectLibraryConfigurations.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\build\CMakeFiles\3.15.0-rc2\CMakeCCompiler.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\build\CMakeFiles\3.15.0-rc2\CMakeRCCompiler.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\build\CMakeFiles\3.15.0-rc2\CMakeSystem.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\cmake\AddCompilerFlags.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\cmake\AddEventLibrary.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\cmake\CheckConstExists.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\cmake\CheckFileOffsetBits.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\cmake\CheckFunctionKeywords.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\cmake\CheckPrototypeDefinition.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\cmake\LibeventConfig.cmake.in;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\cmake\LibeventConfigVersion.cmake.in;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\cmake\Macros.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\cmake\Uninstall.cmake.in;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\cmake\VersionViaGit.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\evconfig-private.h.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\event-config.h.cmake;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\libevent.pc.in;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\libevent_core.pc.in;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\libevent_extra.pc.in;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\libevent_openssl.pc.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\joe\source\repos\WpfApp3\calibevent\src\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\joe\source\repos\WpfApp3\calibevent\src\build\CMakeFiles\NightlyMemoryCheck" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\joe\source\repos\WpfApp3\calibevent\src\build\ZERO_CHECK.vcxproj">
+      <Project>{DCF7C7C9-D736-3416-93B2-0368A7EAF327}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
