@@ -37,7 +37,7 @@ static void conn_eventcb(struct bufferevent*, short, void*);
 static void signal_cb(evutil_socket_t, short, void*);
 
 int
-main(int argc, char** argv)
+main1(int argc, char** argv)
 {
 	struct event_base* base;
 	struct evconnlistener* listener;
