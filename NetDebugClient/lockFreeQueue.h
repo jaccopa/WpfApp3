@@ -34,6 +34,7 @@ public:
 		if (_size.load() > 0) {
 			return  queue[_read_pos];
 		}
+		//return NULL;
 	}
 
 	void pop() {

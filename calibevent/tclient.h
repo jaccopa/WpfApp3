@@ -4,6 +4,8 @@
 #include <Mmsystem.h>
 #pragma comment(lib, "winmm.lib")
 #include <Windows.h>
+#include <process.h>
+#include <thread>
 
 class tclient
 {

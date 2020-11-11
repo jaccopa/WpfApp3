@@ -1,6 +1,7 @@
 #include "tclient.h"
 
 
+
 bool tclient::Init(const char* serverip, const int serverport)
 {
 	WORD wVersionRequested;
@@ -18,9 +19,16 @@ bool tclient::Init(const char* serverip, const int serverport)
 		return false;
 	}
 
-	addr.sin_family = AF_INET;
+	addr.sin_family		= AF_INET;
 	addr.sin_port = htons(serverport);
 	addr.sin_addr.S_un.S_addr = inet_addr(serverip);
+
+	BOOL bDontLinger	= FALSE;
+	setsockopt(Socket, SOL_SOCKET, SO_DONTLINGER,(const char*)&bDontLinger, sizeof(BOOL));
+
+	int nNetTimeout = 1000;
+	setsockopt(Socket, SOL_SOCKET, SO_SNDTIMEO,	(char*)&nNetTimeout, sizeof(int));
+	setsockopt(Socket, SOL_SOCKET, SO_RCVTIMEO,	(char*)&nNetTimeout, sizeof(int));
 
 	return true;
 }
@@ -38,17 +46,10 @@ bool tclient::Connect()
 
 void tclient::DisConnect()
 {
-	if (timer_id != NULL)
-		timeKillEvent(timer_id);
-
-	if (thSend != NULL)
-		CloseHandle(thSend);
-
-	if (thRecv != NULL)
-		CloseHandle(thRecv);
-
 	if (Socket != NULL)
 		closesocket(Socket);
+
+	Socket = NULL;
 
 	WSACleanup();
 }
@@ -63,6 +64,41 @@ tclient::tclient(const char* serverip, const int serverport)
 	Init(serverip, serverport);
 }
 
+
+void tclient::Send()
+{
+	if (cmdQ.empty())
+		return;
+
+	MyStructData* pStruct = cmdQ.front();
+	cmdQ.pop();
+
+	if (pStruct == NULL || pStruct->pdata == NULL || Socket == NULL)
+		return;
+
+	send(Socket, pStruct->pdata, pStruct->len, 0);
+
+
+}
+
+void tclient::Recv()
+{
+
+}
+
+void tclient::PushCmd(const char* cmd, const int len)
+{
+	MyStructData* pStruct	= new MyStructData;
+	pStruct->len			= len;
+	pStruct->pdata			= (char*)malloc(pStruct->len);
+
+	if (pStruct->pdata != NULL)
+	{
+		::memset(pStruct->pdata, 0, pStruct->len);
+		::memmove(pStruct->pdata, cmd, len);
+		cmdQ.push(pStruct);
+	}
+}
 
 
 
