@@ -51,6 +51,21 @@ void tclient::DisConnect()
 
 	Socket = NULL;
 
+	while (cmdQ.empty() == false)
+	{
+		MyStructData* pStruct = cmdQ.front();
+		cmdQ.pop();
+
+		if (pStruct == NULL || pStruct->pdata == NULL || Socket == NULL)
+			continue;
+
+		free(pStruct->pdata);
+		pStruct->pdata = NULL;
+
+		free(pStruct);
+		pStruct = NULL;
+	}
+
 	WSACleanup();
 }
 
@@ -78,7 +93,11 @@ void tclient::Send()
 
 	send(Socket, pStruct->pdata, pStruct->len, 0);
 
+	free(pStruct->pdata);
+	pStruct->pdata	= NULL;
 
+	free(pStruct);
+	pStruct			= NULL;
 }
 
 void tclient::Recv()
