@@ -15,13 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="calibevent.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="tcpClient.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="win32client.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="tclient.cpp">
@@ -30,6 +24,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tclient.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="lockFreeQueue.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

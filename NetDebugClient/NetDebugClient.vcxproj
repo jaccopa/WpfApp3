@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{fbdcebda-d0a2-4e18-97a2-3859334558d1}</ProjectGuid>
-    <RootNamespace>calibevent</RootNamespace>
+    <ProjectGuid>{450b8ee8-4344-4574-9957-1ee0caa07c98}</ProjectGuid>
+    <RootNamespace>NetDebugClient</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -86,14 +86,12 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\joe\source\repos\WpfApp3\calibevent\src\build\include;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\include;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\compat;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\.\WIN32-Code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>lib\event_extra.lib;lib\event_core.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -116,14 +114,12 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\joe\source\repos\WpfApp3\calibevent\src\build\include;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\include;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\compat;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable;C:\Users\joe\source\repos\WpfApp3\calibevent\src\libevent-2.1.12-stable\.\WIN32-Code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>lib\event_extra.lib;lib\event_core.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -143,12 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="calibevent.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="tclient.cpp" />
-    <ClCompile Include="tcpClient.cpp" />
-    <ClCompile Include="win32client.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="lockFreeQueue.h" />
     <ClInclude Include="tclient.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

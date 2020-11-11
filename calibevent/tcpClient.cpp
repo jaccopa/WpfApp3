@@ -34,6 +34,9 @@ struct bufferevent* bev;
 struct sockaddr_in sin;
 
 
+static const char MESSAGE[] = "Hello, World!\n";
+
+
 void Connect()
 {
     if (bufferevent_socket_connect(bev,
@@ -44,12 +47,19 @@ void Connect()
     }
 }
 
+void SendToServer(struct bufferevent* bev)
+{
+    static const char MESSAGE[] = "Hello, World!\n";
+    bufferevent_write(bev, MESSAGE, strlen(MESSAGE));
+}
+
 void eventcb(struct bufferevent* bev, short events, void* ptr)
 {
     if (events & BEV_EVENT_CONNECTED) {
         /* We're connected to 127.0.0.1:8080.   Ordinarily we'd do
            something here, like start reading or writing. */
         printf_s("connected...\r\n");
+        SendToServer(bev);
     }
     else if (events & BEV_EVENT_ERROR) {
         /* An error occured while connecting. */
@@ -59,8 +69,30 @@ void eventcb(struct bufferevent* bev, short events, void* ptr)
     }
 }
 
+void conn_writecb(struct bufferevent* bev, void* user_data)
+{
+    struct evbuffer* output = bufferevent_get_output(bev);
+    if (evbuffer_get_length(output) == 0) {
+        printf("flushed answer\n");
+        bufferevent_free(bev);
+    }
 
-int main(int argc, char** argv)
+}
+
+
+
+void readcb(struct bufferevent* bev, void* ptr)
+{
+    char buf[1024];
+    int n;
+    struct evbuffer* input = bufferevent_get_input(bev);
+    while ((n = evbuffer_remove(input, buf, sizeof(buf))) > 0) {
+        fwrite(buf, 1, n, stdout);
+    }
+}
+
+
+int main2(int argc, char** argv)
 {
 #ifdef _WIN32
     WSADATA wsa_data;
@@ -76,10 +108,16 @@ int main(int argc, char** argv)
 
     bev = bufferevent_socket_new(base, -1, BEV_OPT_CLOSE_ON_FREE);
 
-    bufferevent_setcb(bev, NULL, NULL, eventcb, NULL);
+    bufferevent_setcb(bev, readcb, NULL, eventcb, NULL);
+
+    bufferevent_enable(bev, EV_WRITE | EV_READ);
 
     Connect();
 
+    
+
     event_base_dispatch(base);
+    //event_base_free(base);
+
     return 0;
 }
