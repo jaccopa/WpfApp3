@@ -30,6 +30,8 @@ bool tclient::Init(const char* serverip, const int serverport)
 	setsockopt(Socket, SOL_SOCKET, SO_SNDTIMEO,	(char*)&nNetTimeout, sizeof(int));
 	setsockopt(Socket, SOL_SOCKET, SO_RCVTIMEO,	(char*)&nNetTimeout, sizeof(int));
 
+	pBuf = (char*)malloc(m_sockMaxBufSize);
+
 	return true;
 }
 
@@ -66,6 +68,12 @@ void tclient::DisConnect()
 		pStruct = NULL;
 	}
 
+	if (pBuf)
+	{
+		free(pBuf);
+		pBuf = NULL;
+	}
+
 	WSACleanup();
 }
 
@@ -91,7 +99,7 @@ void tclient::Send()
 	if (pStruct == NULL || pStruct->pdata == NULL || Socket == NULL)
 		return;
 
-	send(Socket, pStruct->pdata, pStruct->len, 0);
+	::send(Socket, pStruct->pdata, pStruct->len, 0);
 
 	free(pStruct->pdata);
 	pStruct->pdata	= NULL;
@@ -102,7 +110,17 @@ void tclient::Send()
 
 void tclient::Recv()
 {
-
+	::memset(pBuf,0,this->m_sockMaxBufSize);
+	//int n = ::recv(Socket, pBuf, this->m_sockMaxBufSize,0);
+	//if (n > 0)
+	//{
+	//	std::cout << pBuf << std::endl;
+	//}
+	int n = ::recv(Socket, pBuf, this->m_sockMaxBufSize, 0);
+	if (n > 0)
+	{
+		std::cout << pBuf << std::endl;
+	}
 }
 
 void tclient::PushCmd(const char* cmd, const int len)

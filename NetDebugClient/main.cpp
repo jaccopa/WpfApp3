@@ -22,7 +22,14 @@ void WINAPI onTimeFuncGenCmd(UINT wTimerID, UINT msg, DWORD dwUser, DWORD dwl, D
 }
 
 
-
+void WINAPI RecvFunc(void *para)
+{
+    while (true)
+    {
+        pclient->Recv();
+        pclient->Send();
+    }
+}
 
 int main(int argc, char** argv)
 {
@@ -35,6 +42,8 @@ int main(int argc, char** argv)
     {
     }
 
+
+    _beginthread(RecvFunc,0,NULL);
 
     timer_idCmd = timeSetEvent(30, 0, (LPTIMECALLBACK)onTimeFuncSendCmd, DWORD(1), TIME_PERIODIC);
     if (NULL == timer_idCmd)
