@@ -38,7 +38,6 @@ bool tclient::Init(const char* serverip, const int serverport)
 	sendFailedCt = 0;
 	Alive = true;
 
-
 	return true;
 }
 
@@ -109,7 +108,7 @@ void tclient::Send()
 	int ret = ::send(Socket, pStruct->pdata, pStruct->len, 0);
 	if (ret <= 0)
 	{
-		std::cout << "send failed~" << std::endl;
+		std::flush(std::cout << "send failed~" << std::endl);
 		sendFailedCt++;
 		if (sendFailedCt > 3)
 		{
