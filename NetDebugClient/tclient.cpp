@@ -7,6 +7,9 @@ bool tclient::Init(const char* serverip, const int serverport)
 	WORD wVersionRequested;
 	WSADATA wsaData;
 
+	this->mServerip = const_cast<char*>(serverip);
+	this->mServerport = serverport;
+
 	wVersionRequested = MAKEWORD(2, 2);
 	if (WSAStartup(wVersionRequested, &wsaData) != 0)
 	{
@@ -31,6 +34,9 @@ bool tclient::Init(const char* serverip, const int serverport)
 	setsockopt(Socket, SOL_SOCKET, SO_RCVTIMEO,	(char*)&nNetTimeout, sizeof(int));
 
 	pBuf = (char*)malloc(m_sockMaxBufSize);
+
+	sendFailedCt = 0;
+	Alive = true;
 
 	return true;
 }
@@ -99,7 +105,22 @@ void tclient::Send()
 	if (pStruct == NULL || pStruct->pdata == NULL || Socket == NULL)
 		return;
 
-	::send(Socket, pStruct->pdata, pStruct->len, 0);
+	int ret = ::send(Socket, pStruct->pdata, pStruct->len, 0);
+	if (ret <= 0)
+	{
+		std::flush(std::cout << "send failed~" << std::endl);
+		sendFailedCt++;
+		if (sendFailedCt > 3)
+		{
+			Alive = false;
+			this->Init(this->mServerip,this->mServerport);
+			this->Connect();
+		}
+	}
+	else
+	{
+		Alive = true;
+	}
 
 	free(pStruct->pdata);
 	pStruct->pdata	= NULL;
