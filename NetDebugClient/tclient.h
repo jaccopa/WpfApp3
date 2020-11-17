@@ -100,6 +100,9 @@ public:
 
 	void PushCmd(const char* cmd, const int len);
 
+	atomic<bool> Alive;
+
+
 
 	void Recv();
 
@@ -108,7 +111,10 @@ public:
 	~tclient();
 
 private:
+	 char* mServerip;
+	 int mServerport;
 
+	int sendFailedCt;
 	bool Init(const char* serverip, const int serverport);
 	char* pBuf;
 	const int m_sockMaxBufSize = 1024 * 64;
