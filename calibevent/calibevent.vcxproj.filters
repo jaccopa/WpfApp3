@@ -27,6 +27,15 @@
     <ClCompile Include="tclient.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="timerevent.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="eventClient.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="bufferevent_cb.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tclient.h">

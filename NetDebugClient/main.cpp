@@ -28,6 +28,7 @@ void WINAPI RecvFunc(void *para)
     {
         pclient->Recv();
         pclient->Send();
+        Sleep(1);
     }
 }
 
@@ -36,7 +37,7 @@ int main(int argc, char** argv)
     MMRESULT timer_idCmd, timer_idCmdGen;
     int n = 0;
 
-    pclient = new tclient("192.168.5.64",8080);
+    pclient = new tclient("192.168.111.111",2000);
 
     while (pclient->Connect() == false)
     {
@@ -52,7 +53,7 @@ int main(int argc, char** argv)
     //    return 0;
     //}
 
-    timer_idCmdGen = timeSetEvent(500, 0, (LPTIMECALLBACK)onTimeFuncGenCmd, DWORD(1), TIME_PERIODIC);
+    timer_idCmdGen = timeSetEvent(50, 0, (LPTIMECALLBACK)onTimeFuncGenCmd, DWORD(1), TIME_PERIODIC);
     if (NULL == timer_idCmdGen)
     {
         printf("timeSetEvent() failed with error %d\n", GetLastError());
