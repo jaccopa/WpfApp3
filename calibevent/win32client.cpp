@@ -19,7 +19,7 @@ BOOL WaitRecv(SOCKET s, int timeout) {
 
 
 //int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int  nCmdShow)
-int main(int argc, char** argv)
+int main3(int argc, char** argv)
 {
 	WORD wVersionRequested;
 	WSADATA wsaData;

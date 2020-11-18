@@ -87,12 +87,12 @@ void readcb(struct bufferevent* bev, void* ptr)
     int n;
     struct evbuffer* input = bufferevent_get_input(bev);
     while ((n = evbuffer_remove(input, buf, sizeof(buf))) > 0) {
-        fwrite(buf, 1, n, stdout);
+        //fwrite(buf, 1, n, stdout);
     }
 }
 
 
-int main2(int argc, char** argv)
+int main(int argc, char** argv)
 {
 #ifdef _WIN32
     WSADATA wsa_data;
