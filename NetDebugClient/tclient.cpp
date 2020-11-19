@@ -140,7 +140,7 @@ void tclient::Recv()
 	int n = ::recv(Socket, pBuf, this->m_sockMaxBufSize, 0);
 	if (n > 0)
 	{
-		std::cout << pBuf[0] << std::endl;
+		//std::cout << pBuf[0] << std::endl;
 	}
 }
 

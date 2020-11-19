@@ -9,12 +9,31 @@ namespace ConsoleApp2
 {
     class Program
     {
+
+        //static System.Threading.Timer timer = null;
+
         static void Main(string[] args)
         {
-            Task.Factory.StartNew(()=> { ExitTask(); });
+            Task.Factory.StartNew(() => { System.Threading.Timer timer = new System.Threading.Timer(GetStatusThread, null, 0, 500); });
+
+            
 
             Console.ReadLine();
         }
+
+        static void GetStatusThread(object obj)
+        {
+            //#if DEBUG
+            //            UserS = true;
+            //            powerRecvDataEvent?.Invoke((byte)FuncNoPowerManager.ReqShutdown);
+            //#endif
+
+            //new CSerialHelperAsyn().SendIO(ref isp, CID.PC, cID, (byte)FuncNoPowerManager.Status, null);
+            Console.WriteLine("GetStatusThread "+ DateTime.Now.ToString());
+
+            //timer?.Change(1000,Timeout.Infinite);
+        }
+        
 
         static void ExitTask()
         {

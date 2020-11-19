@@ -30,7 +30,7 @@ void bufferevent_cb(struct bufferevent* bev, short events, void* ctx)
            something here, like start reading or writing. */
         puts("BEV_EVENT_CONNECTED");
     }
-    else if (events & BEV_EVENT_ERROR) {
+    else if (events & (BEV_EVENT_ERROR | BEV_EVENT_EOF)) {
         /* An error occured while connecting. */
         puts("BEV_EVENT_ERROR");
     }
